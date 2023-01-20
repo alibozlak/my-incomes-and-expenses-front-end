@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { ListExpenseGroupsComponent } from './pages/list-expense-groups/list-expense-groups.component';
 import { ExpenseGroupDetailComponent } from './pages/expense-group-detail/expense-group-detail.component';
+import { AddExpenseComponent } from './pages/add-expense/add-expense.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ExpenseGroupDetailComponent } from './pages/expense-group-detail/expens
     HomeComponent,
     AddExpenseGroupComponent,
     ListExpenseGroupsComponent,
-    ExpenseGroupDetailComponent
+    ExpenseGroupDetailComponent,
+    AddExpenseComponent
   ],
   imports: [
     BrowserModule,
