@@ -15,9 +15,6 @@ export class ExpenseGroupDetailComponent implements OnInit {
     expenseGroupName : "",
     description : ""
   }
-  resultUpdate : Result = {
-    isSuccess : false
-  }
 
   constructor(
     private expenseGroupService : ExpenseGroupService,
@@ -39,7 +36,11 @@ export class ExpenseGroupDetailComponent implements OnInit {
 
   put(){
     this.expenseGroupService.putExpenseGroup(this.expenseGroupGetAllColumnResponse).subscribe(response => {
-      this.resultUpdate.isSuccess = response.isSuccess;
+      if (response.success) {
+        alert("Gider grubu başarılı bir ekilde güncellendi");
+      } else {
+        alert("Güncelleme yapılamadı!!");
+      }     
     })
   }
 }

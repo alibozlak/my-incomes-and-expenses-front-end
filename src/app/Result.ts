@@ -1,3 +1,3 @@
 export interface Result {
-    isSuccess : boolean;
+    success : boolean;
 }

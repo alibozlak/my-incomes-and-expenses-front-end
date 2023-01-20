@@ -13,9 +13,6 @@ export class AddExpenseGroupComponent {
     expenseGroupName : "",
     description : ""
   }
-  result : Result = {
-    isSuccess : false
-  }
 
   constructor(private expenseGroupService : ExpenseGroupService){}
 
@@ -28,10 +25,12 @@ export class AddExpenseGroupComponent {
 
   post(){
     this.expenseGroupService.postExpenseGroup(this.createExpenseGroupRequest).subscribe(response => {
-      this.result.isSuccess = response.isSuccess;
-      if (response.isSuccess) {
+      if (response.success) {
         this.createExpenseGroupRequest.expenseGroupName = "";
         this.createExpenseGroupRequest.description = "";
+        alert("Gider grubu başarılı bir ekilde eklendi");
+      } else {
+        alert("Ekleme yapılamadı!!");
       }
     })
   }
