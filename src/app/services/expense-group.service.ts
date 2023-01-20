@@ -31,4 +31,9 @@ export class ExpenseGroupService {
   putExpenseGroup(updateExpenseGroupRequest : UpdateExpenseGroupRequest){
     return this.httpClient.put<Result>(this.url,updateExpenseGroupRequest);
   }
+
+  deleteExpenseGroupById(expenseGroupId : number){
+    let newUrl = this.url + "/delete-by-id/" + expenseGroupId;
+    return this.httpClient.delete<Result>(newUrl);
+  }
 }

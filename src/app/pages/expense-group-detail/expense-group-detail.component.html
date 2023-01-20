@@ -14,4 +14,12 @@
         <label for="inputExpenseGroupDescription">Gider Grubu Açıklaması</label>
     </div>
     <button type="buttonUpdate" [class]="buttonUpdateClass()" (click)="put()">Güncelle</button>
+    <button type="buttonDelete" [class]="buttonDeleteClass()" (click)="areYouSure()">
+        Bu gider grubunu Sil
+    </button>
+    <div class="container mt-3" *ngIf="clickedDeleteButton">
+        <strong class="text-danger">Bu gider grubunu silmek istediğinize emin misiniz?</strong>
+        <br>
+        <button type="buttonDelete" class="btn btn-danger mt-1" (click)="delete()">Evet, Eminim</button>
+    </div>
 </div>

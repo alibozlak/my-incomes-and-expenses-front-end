@@ -15,6 +15,7 @@ export class ExpenseGroupDetailComponent implements OnInit {
     expenseGroupName : "",
     description : ""
   }
+  clickedDeleteButton : boolean = false;
 
   constructor(
     private expenseGroupService : ExpenseGroupService,
@@ -34,6 +35,13 @@ export class ExpenseGroupDetailComponent implements OnInit {
     return "btn btn-primary mt-3";
   }
 
+  buttonDeleteClass(){
+    if (this.clickedDeleteButton) {
+      "btn btn-danger ms-3 mt-3 disabled"
+    }
+    return "btn btn-danger mt-3 ms-3"
+  }
+
   put(){
     this.expenseGroupService.putExpenseGroup(this.expenseGroupGetAllColumnResponse).subscribe(response => {
       if (response.success) {
@@ -42,5 +50,20 @@ export class ExpenseGroupDetailComponent implements OnInit {
         alert("Güncelleme yapılamadı!!");
       }     
     })
+  }
+
+  delete(){
+    this.expenseGroupService.deleteExpenseGroupById(this.expenseGroupGetAllColumnResponse.expenseGroupId)
+      .subscribe(response => {
+        if (response.success) {
+          alert("Gider grubu silindi!!");
+        } else {
+          alert("Silinme başarılı değil!");
+        }
+      })
+  }
+
+  areYouSure(){
+    this.clickedDeleteButton = true;
   }
 }
