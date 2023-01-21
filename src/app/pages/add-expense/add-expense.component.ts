@@ -2,7 +2,7 @@ import { ExpenseGroupService } from './../../services/expense-group.service';
 import { ExpenseGroupIdAndNameResponse } from './../../dtos/ExpenseGroup/expenseGroupIdAndNameResponse';
 import { CreateExpenseRequest } from './../../dtos/Expense/CreateExpenseRequest';
 import { Component, OnInit } from '@angular/core';
-import { AxpenseService } from 'src/app/services/axpense.service';
+import { ExpenseService } from 'src/app/services/expense.service';
 
 @Component({
   selector: 'app-add-expense',
@@ -19,7 +19,7 @@ export class AddExpenseComponent implements OnInit {
   expenseGroupIdAndNameResponses : ExpenseGroupIdAndNameResponse[] = [];
 
   constructor(
-    private expenseService : AxpenseService,
+    private expenseService : ExpenseService,
     private expenseGroupService : ExpenseGroupService
   ){}
 

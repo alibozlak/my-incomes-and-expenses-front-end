@@ -1,0 +1,17 @@
+<table class="table table-dark table-striped mt-4">
+    <thead>
+        <th class="text-danger">Gider Miktarı</th>
+        <th class="text-danger">Tarihi</th>
+        <th class="text-danger">Grubu</th>
+        <th class="text-danger">Açıklama</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let expenseAllColumnAndGroupName of expenseAllColumnAndGroupNames" 
+            routerLink="/expense-detail/{{expenseAllColumnAndGroupName.expenseId}}">
+            <td>{{expenseAllColumnAndGroupName.expenseAmount}}</td>
+            <td>{{expenseAllColumnAndGroupName.date}}</td>
+            <td>{{expenseAllColumnAndGroupName.expenseGroupName}}</td>
+            <td>{{expenseAllColumnAndGroupName.description}}</td>
+        </tr>
+    </tbody>
+</table>

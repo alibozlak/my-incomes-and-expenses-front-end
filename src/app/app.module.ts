@@ -10,6 +10,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { ListExpenseGroupsComponent } from './pages/list-expense-groups/list-expense-groups.component';
 import { ExpenseGroupDetailComponent } from './pages/expense-group-detail/expense-group-detail.component';
 import { AddExpenseComponent } from './pages/add-expense/add-expense.component';
+import { ListExpensesComponent } from './pages/list-expenses/list-expenses.component';
+import { ExpenseDetailComponent } from './pages/expense-detail/expense-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddExpenseComponent } from './pages/add-expense/add-expense.component';
     AddExpenseGroupComponent,
     ListExpenseGroupsComponent,
     ExpenseGroupDetailComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    ListExpensesComponent,
+    ExpenseDetailComponent
   ],
   imports: [
     BrowserModule,
