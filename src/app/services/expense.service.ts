@@ -1,3 +1,4 @@
+import { UpdateExpenseRequest } from './../dtos/Expense/UpdateExpenseRequest';
 import { ExpenseGetAllColumnResponse } from './../dtos/Expense/ExpenseGetAllColumnResponse';
 import { CreateExpenseRequest } from '../dtos/Expense/CreateExpenseRequest';
 import { HttpClient } from '@angular/common/http';
@@ -24,5 +25,14 @@ export class ExpenseService {
   getExpenseById(expenseId : number){
     let newUrl = this.url + "/get-by-id/" + expenseId;
     return this.httpClient.get<ExpenseGetAllColumnResponse>(newUrl);
+  }
+
+  put(updateExpenseRequest : UpdateExpenseRequest){
+    return this.httpClient.put<Result>(this.url,updateExpenseRequest);
+  }
+
+  deleteById(expenseId : number){
+    let newUrl = this.url + "/delete-by-id/" + expenseId;
+    return this.httpClient.delete<Result>(newUrl);
   }
 }

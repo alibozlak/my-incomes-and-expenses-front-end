@@ -1,4 +1,4 @@
-<table class="table table-dark table-striped mt-4">
+<table class="table table-dark table-striped mt-4" *ngIf="expenseAllColumnAndGroupNames.length > 0">
     <thead>
         <th class="text-danger">Gider Miktarı</th>
         <th class="text-danger">Tarihi</th>
@@ -15,3 +15,6 @@
         </tr>
     </tbody>
 </table>
+<p class="mt-4 text-center fs-3" *ngIf="expenseAllColumnAndGroupNames.length == 0">
+    Listelenecek gider yok!
+</p>

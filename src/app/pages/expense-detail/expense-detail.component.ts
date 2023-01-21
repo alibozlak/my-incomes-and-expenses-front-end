@@ -19,6 +19,7 @@ export class ExpenseDetailComponent implements OnInit {
     description : ""
   }
   expenseGroupIdAndNameResponses : ExpenseGroupIdAndNameResponse[] = [];
+  isClickedDeleteButton = false;
 
   constructor(
     private expenseService : ExpenseService,
@@ -33,5 +34,36 @@ export class ExpenseDetailComponent implements OnInit {
     this.expenseService.getExpenseById(this.activatedRoute.snapshot.params['expenseId']).subscribe(response => {
       this.updateExpenseRequest = response;
     })
+  }
+
+  updateButtonClass(){
+    if (this.updateExpenseRequest.expenseAmount < 0) {
+      return "btn btn-primary mt-3 disabled";
+    }
+    return "btn btn-primary mt-3";
+  }
+
+  put(){
+    this.expenseService.put(this.updateExpenseRequest).subscribe(response => {
+      if (response.success) {
+        alert("Gider güncellemesi başarılı");
+      } else {
+        alert("Güncelleme yapılamadı!!");
+      }
+    })
+  }
+
+  delete(){
+    this.expenseService.deleteById(this.updateExpenseRequest.expenseId).subscribe(response => {
+      if (response.success) {
+        alert("Silme işlemi başarılı");
+      } else {
+        alert("Silme işlemi gerçekleştirilemedi!!");
+      }
+    })
+  }
+
+  clickedDeleteButton(){
+    this.isClickedDeleteButton = true;
   }
 }
